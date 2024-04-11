@@ -1,0 +1,43 @@
+<style>
+  .bio_tag_root {
+    margin-top: 32px;
+    margin-left: 65px;
+    margin-right: 65px;
+    background-color: #fcfdfc;
+  }
+</style>
+
+<div class="bio_tag_root">
+  <div class="tagItem">
+    <h class="flora">Flora & Fauna details</h>
+    <div class="grid-containerc">
+      <% biodiversityData.tag.forEach(tag => { %>
+      <div class="tagBox">
+        <h class="tagtext"> <%= tag %> </h>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+
+  <div class="cmtdiv">
+    <h class="cmt">Comments (02)</h>
+    <div class="cmtSection">
+      <% biodiversityData.comments.forEach(comment => { %>
+
+      <div class="cmtItemAct1">
+        <h class="cmtText"><%= comment.comment1 %></h>
+        <h class="dateText"><%= comment.date1 %></h>
+      </div>
+      <% }); %>
+
+      <hr class="watering_hr" />
+      <% biodiversityData.comments.forEach(comment => { %>
+
+      <div class="cmtItemAct1">
+        <h class="cmtText"><%= comment.comment2 %></h>
+        <h class="dateText"><%= comment.date2 %> </h>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+</div>

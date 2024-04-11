@@ -1,0 +1,77 @@
+<Style>
+    .titleMainWatering2 {
+        color: #805D3A;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        font-family: "Noto Sans";
+
+    }
+
+    .tableWatering {
+        width: 100%;
+        overflow: hidden;
+        margin-top: 26px;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        /* border: 0.5px solid #748E63 ; */
+        background: #FFF;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .tableHead th {
+        color: #fff;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        padding: 12px 12px 9px 24px;
+        font-family: "Noto Sans";
+        --bg-color: <%=cumulative_data_color %> background-color: var(--bg-color);
+
+    }
+
+    .rootWater2 {
+        margin-top: 32px;
+        background: rgba(249, 181, 114, 0.02);
+        margin-left: 65px;
+        margin-right: 65px;
+    }
+
+    td {
+        border: 1px solid #dddddd;
+        padding: 16px 24px 16px 24px;
+        text-align: left;
+        font-size: 14px;
+        font-family: "Noto Sans";
+
+
+    }
+</Style>
+<div class="rootWater2">
+
+    <h class="titleMainWatering2">Watering plants</h>
+    <table class="tableWatering">
+        <tr class="tableHead">
+            <th>Title</th>
+            <% cumulativeWateringTabledata.columnNames.forEach(columnName => { %>
+                <th class="year_auper"><%= columnName %></th>
+            <% }); %>
+        </tr>
+        <% cumulativeWateringTabledata.rows.forEach(item=> { %>
+            <tr>
+                <td>
+                    <%= item.title %>
+                </td>
+                <% item.weeks.forEach(week=> { %>
+                    <td class="year_auper">
+                        <%= week %>
+                    </td>
+                    <% }) %>
+            </tr>
+            <% }) %>
+    </table>
+
+</div>

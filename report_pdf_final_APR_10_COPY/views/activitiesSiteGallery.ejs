@@ -1,0 +1,24 @@
+<style>
+    .activities_site_gallery_root {
+        margin-top: 32px;
+        margin-left: 65px;
+        margin-right: 65px;
+        background-color: #FCFDFC;
+
+    }
+</style>
+
+<div class="activities_site_gallery_root">
+
+    <div class="googleEarth">
+        <h class="googletitle">Activity 02 : Site Clean-Up</h>
+    </div>
+    <div class="grid-container1">
+        <% for (let i=0; i < activitiesTableData.siteCards.length; i++) { %>
+            <div class="grid-item" class="cardBox">
+                <img src="<%= activitiesTableData?.siteCards[i].imageSrc %>" class="assetImgAct" />
+
+            </div>
+            <% } %>
+    </div>
+</div>

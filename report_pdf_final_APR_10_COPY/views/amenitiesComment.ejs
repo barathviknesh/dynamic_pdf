@@ -1,0 +1,34 @@
+<style>
+    .amenities_root_comment {
+        margin-left: 65px;
+        margin-right: 65px;
+        background-color: #FCFDFC;
+        margin-top: 25px !important;
+    }
+</style>
+<div class="amenities_root_comment">
+
+
+    <div class="amenities_comment_div">
+        <h class="amenities_comment">Comments (02)</h>
+        <div class="amenities_comment_section">
+            <% amenitiesTableData.comments.forEach(comment => { %>
+
+            <div class="amenities_comment_item">
+                <h class="amenities_comment_text"><%= comment.comment1 %></h>
+                <h class="amenities_comment_date_text"><%= comment.date1 %></h>
+            </div>
+            <% }); %>
+
+            <hr class="watering_hr">
+            <% amenitiesTableData.comments.forEach(comment => { %>
+
+            <div class="amenities_comment_item">
+                <h class="amenities_comment_text"><%= comment.comment2 %></h>
+                <h class="amenities_comment_date_text"> <%= comment.date2 %></h>
+            </div>
+            <% }); %>
+
+        </div>
+    </div>
+</div>

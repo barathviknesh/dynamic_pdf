@@ -1,0 +1,25 @@
+<style>
+    .activities_weed_root {
+        margin-top: 32px;
+        margin-left: 65px;
+        margin-right: 65px;
+        background-color: #FCFDFC;
+
+    }
+</style>
+
+<div class="activities_weed_root">
+
+    <div class="googleEarth">
+        <h class="googletitle">Activity 01 : Weed Removal</h>
+    </div>
+    <div class="grid-container1">
+        <% for (let i=0; i < activitiesTableData.cards.length; i++) { %>
+            <div class="grid-item" class="cardBox">
+                <img src="<%= activitiesTableData?.cards[i].imageSrc %>" class="assetImgAct" />
+            </div>
+            <% } %>
+    </div>
+
+   
+</div>

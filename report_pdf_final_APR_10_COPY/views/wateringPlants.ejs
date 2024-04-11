@@ -1,0 +1,79 @@
+<style>
+    .titleMain {
+        color: #748E63;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        font-family: "Noto Sans";
+
+    }
+
+    .tableWatering {
+        width: 100%;
+        overflow: hidden;
+        margin-top: 26px;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        /* border: 0.5px solid #748E63 ; */
+        background: #FFF;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .tableHead_water th {
+        color: #fff;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        padding: 12px 12px 9px 24px;
+        font-family: "Noto Sans";
+        --bg-color: <%= report_data_color %>
+        background-color: var(--bg-color);
+
+    }
+
+    .rootWater {
+        margin-top: 32px;
+        background-color: #FCFDFC;
+        margin-left: 65px;
+        margin-right: 65px;
+    }
+
+    td {
+        border: 1px solid #dddddd;
+        padding: 16px 24px 16px 24px;
+        text-align: left;
+        font-size: 14px;
+        font-family: "Noto Sans";
+
+
+    }
+
+
+</style>
+
+
+<div class="rootWater">
+
+    <h class="titleMain">Watering plants</h>
+    <table class="tableWatering">
+        <tr class="tableHead_water">
+            <th>Title</th>
+            <% wateringTabledata.columnNames.forEach(columnName => { %>
+                <th class="year_auper"><%= columnName %></th>
+            <% }); %>
+        </tr>
+        
+        <% wateringTabledata.rows.forEach(entry => { %>
+            <tr>
+                <td><%= entry.title %></td>
+                <% entry.weeks.forEach(value => { %>
+                    <td><%= value %></td>
+                <% }); %>
+            </tr>
+        <% }); %>
+    </table>
+
+</div>

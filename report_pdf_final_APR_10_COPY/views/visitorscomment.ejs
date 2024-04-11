@@ -1,0 +1,34 @@
+<style>
+    .visitor_comment_root {
+        margin-left: 65px;
+        margin-right: 65px;
+        background-color: #FCFDFC;
+
+    }
+</style>
+<div class="visitor_comment_root">
+    <div class="cmtdiv">
+        <h class="cmt">Comments (02)</h>
+        <div class="cmtSection">
+            <% visitorData.comments.forEach(comment => { %>
+
+            <div class="cmtItemAct1">
+                <h class="cmtText"><%= comment.comment1 %></h>
+                <h class="dateText"> <%= comment.date1 %></h>
+
+            </div>
+            <% }); %>
+
+            <hr class="watering_hr">
+            <% visitorData.comments.forEach(comment => { %>
+
+            <div class="cmtItemAct1">
+                <h class="cmtText"><%= comment.comment2 %></h>
+                <h class="dateText"> <%= comment.date2 %></h>
+            </div>
+            <% }); %>
+
+        </div>
+    </div>
+
+</div>

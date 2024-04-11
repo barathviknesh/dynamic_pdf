@@ -1,0 +1,70 @@
+<style>
+    .titleMain {
+        color: #748E63;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    .tabelSupervisor {
+        width: 100%;
+        overflow: hidden;
+        margin-top: 26px;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        /* border: 0.5px solid #748E63 ; */
+        background: #FFF;
+    }
+
+    .tableHead_super th {
+        --bg-color: <%= report_data_color %>
+        background-color: var(--bg-color);
+        color: #fff;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        padding: 12px 12px 9px 24px;
+        font-family: "Noto Sans";
+
+    }
+
+    .rootSuper {
+        margin-top: 32px;
+        margin-left: 65px;
+        margin-right: 65px;
+        background-color: #FCFDFC;
+
+    }
+
+    td {
+        border: 1px solid #dddddd;
+        padding: 16px 24px 16px 24px;
+        text-align: left;
+        font-size: 14px;
+        font-family: "Noto Sans";
+    }
+</style>
+<div class="rootSuper">
+
+    <h class="titleMain">Supervisor attendance</h>
+    <table class="tableActivity">
+        <tr class="tableHead_act">
+            <th>Title</th>
+            <% attendanceTableData.columnNames.forEach(columnName => { %>
+                <th><%= columnName %></th>
+            <% }); %>
+        </tr>
+        <% attendanceTableData.rows.forEach(item => { %>
+            <tr>
+                <td><%= item.title %></td>
+                <% item.attendance.forEach(day => { %>
+                    <td><%= day %></td>
+                <% }) %>
+            </tr>
+        <% }) %>
+    </table>
+    
+
+</div>

@@ -1,0 +1,149 @@
+<style>
+    .linechart_root {
+        margin-left: 65px;
+        margin-right: 65px;
+        margin-top: 40px;
+        background: rgba(249, 181, 114, 0.02);
+        /* width: 90%;
+        /* min-width: 90%; */
+        /* max-width: 90%;  */
+        /* transform: scale(0.90); */
+        /* transform-origin: 0 0; */
+    }
+
+    .title_cum {
+        color: #000;
+        font-family: "Noto Sans";
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        text-align: center;
+    }
+
+    .chart_box {
+        margin-top: 40px;
+    }
+
+    .palnt_count {
+        text-align: left;
+        color: #805D3A;
+        font-family: "Noto Sans";
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    .trees_desc {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        margin-top: 40px;
+        margin-bottom: 48px;
+    }
+
+    .color_box {
+        align-items: center;
+        display: flex;
+        gap: 8px;
+    }
+</style>
+<div class="linechart_root">
+    <div class="title_cum">Cumulative Data</div>
+    <div class="chart_box">
+        <h class="palnt_count">Plants count</h>
+        <div style="height: 324px; width: 100%; margin-top: 40px;">
+            <canvas id="lineChart" style="width:100%; min-width: 100%; max-width: 100%; height: 324px;"></canvas>
+        </div>
+        <div class="trees_desc">
+            <div class="color_box">
+                <img src="orangeBox.svg" />
+                <h>Trees planted</h>
+            </div>
+            <div class="color_box">
+                <img src="purpleBox.svg" />
+                <h>Trees dead</h>
+            </div>
+
+            <div class="color_box">
+                <img src="merunBox.svg" />
+                <h>Trees replaced</h>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    // line chart
+    // Sample data for the line chart
+    var treePlanted = [];
+        <% lineChartValue?.treePlanted?.forEach(function (value) { %>
+        treePlanted.push(parseInt('<%- value %>'));
+        <% }); 
+        %>;
+
+    var treeDead = [];
+        <% lineChartValue?.treeDead?.forEach(function (value) { %>
+        treeDead.push(parseInt('<%- value %>'));
+        <% }); 
+        %>;
+
+    var treeReplaced = [];
+        <% lineChartValue?.treeReplaced?.forEach(function (value) { %>
+        treeReplaced.push(parseInt('<%- value %>'));
+        <% }); 
+        %>;
+
+        var dataValuesLabels = [];
+        <% lineChartValue?.labels?.forEach(function(value) { %>
+            dataValuesLabels.push('<%- value %>');
+        <% }); 
+        %>;
+
+    const lineData = {
+        labels: dataValuesLabels,
+        datasets: [{
+            label: 'treePlanted',
+            data: treePlanted,
+            fill: false,
+            borderColor: 'rgb(229,147,28)',
+            tension: 0.1
+        },
+        {
+            label: 'treeDead',
+            data: treeDead,
+            fill: false,
+            borderColor: 'rgb(115,47,112)',
+            tension: 0.1
+        },
+        {
+            label: 'treeReplaced',
+            data: treeReplaced,
+            fill: false,
+            borderColor: 'rgb(201,74,89)',
+            tension: 0.1
+        }]
+    };
+    // Configuration options for the chart
+    const lineOptions = {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        },
+        plugins: {
+            legend: {
+                display: false // Hide legend
+            }
+        }
+    };
+    // Get the canvas element
+    const ctxLine = document.getElementById('lineChart').getContext('2d');
+    // Create the line chart
+    const lineChart = new Chart(ctxLine, {
+        type: 'line',
+        data: lineData,
+        options: lineOptions
+    });
+</script>

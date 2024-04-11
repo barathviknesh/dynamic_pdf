@@ -1,0 +1,191 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+    .circleChart_root {
+        margin-left: 65px;
+        margin-right: 65px;
+        background-color: #FCFDFC;
+        margin-top: 32px;
+
+    }
+
+    .titleMaincricle {
+        color: #748E63;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        font-family: "Noto Sans";
+
+    }
+
+    .tableHead_Chart th {
+        color: #fff;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        padding: 12px 12px 9px 24px;
+        font-family: "Noto Sans";
+        --bg-color: <%= report_data_color %>
+        background-color: var(--bg-color);
+    }
+
+    .tableChart {
+        border-collapse: collapse;
+        width: 100%;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        overflow: hidden;
+        margin-top: 26px;
+
+    }
+
+    td {
+        border: 1px solid #dddddd;
+        padding: 16px 24px 16px 24px;
+        text-align: left;
+        font-size: 14px;
+        font-family: "Noto Sans";
+
+    }
+
+    .grid-container_circle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .grid-item_table {
+        margin-top: 24px;
+        width: 100%;
+    }
+
+    .grid-item_chart {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .trees_desc_chart {
+        display: grid;
+        align-items: center;
+        gap: 24px;
+        /* margin-top: 40px; */
+    }
+
+    .color_box_chart {
+        align-items: center;
+        display: flex;
+        gap: 8px;
+    }
+</style>
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var ctx = document.getElementById('myDoughnutChart').getContext('2d');
+    var canvas = document.getElementById('myDoughnutChart');
+    canvas.width = 400; // Set width dynamically
+    canvas.height = 400; // Set height dynamically
+
+        var dataValues = [];
+        <% circleChartValue?.data?.forEach(function(value) { %>
+            dataValues.push(parseInt('<%- value %>'));
+        <% }); 
+        %>;
+
+    var myDoughnutChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: dataValues,
+                backgroundColor: [
+                    '#E5931C',
+                    '#C94A59',
+                    '#E8AF1A',
+                    "#732A70",
+                    '#4F5C8B'
+                ],
+                borderColor: 'white',
+                borderWidth: 2,
+            }]
+        },
+        options: {
+            plugins: {
+                tooltip: {
+                    enabled: false
+                },
+                datalabels: {
+                    align: 'end',
+                    anchor: 'end'
+                }
+            }
+        }
+    });
+});
+
+
+</script>
+
+<div class="circleChart_root">
+    <h class="titleMaincricle">Top 5 trees (Tree distribution)</h>
+    <div class="grid-container_circle">
+        <div class="grid-item_chart">
+            <div style="height: 304px; width: 65%; margin-top: 42px;">
+                <canvas id="myDoughnutChart" style="width: 65%; height: 400px;"></canvas>
+            </div>
+            <div class="trees_desc_chart">
+                <div class="color_box_chart">
+                    <img src="yellowBox.svg" />
+                    <h><%= circleChartValue.plantNames[0] %></h>
+                </div>
+                <div class="color_box_chart">
+                    <img src="orangeBox.svg" />
+                    <h><%= circleChartValue.plantNames[1] %></h>
+                </div>
+
+                <div class="color_box_chart">
+                    <img src="purpleBox.svg" />
+                    <h><%= circleChartValue.plantNames[2] %></h>
+                </div>
+                <div class="color_box_chart">
+                    <img src="merunBox.svg" />
+                    <h><%= circleChartValue.plantNames[3] %></h>
+                </div>
+                <div class="color_box_chart">
+                    <img src="greyBox.svg" />
+                    <h><%= circleChartValue.plantNames[4] %></h>
+                </div>
+
+            </div>
+        </div>
+        <div class="grid-item_table">
+            <table class="tableChart">
+                <tr class="tableHead_Chart">
+                    <th>Name</th>
+                    <th>Percentage</th>
+                    <th>Count</th>
+                </tr>
+                <% circleData.forEach(function(item) { %>
+                    <tr>
+                        <td>
+                            <%= item.name %>
+                        </td>
+                        <td>
+                            <%= item.percentage %>
+                        </td>
+                        <td>
+                            <%= item.count %>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </table>
+
+        </div>
+    </div>
+
+
+</div>
+</div>

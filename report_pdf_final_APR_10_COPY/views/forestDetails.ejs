@@ -1,0 +1,29 @@
+<style>
+    .forest_root {
+        background-image: url('../bgTree.jpg');
+        padding: 40px 65px
+    }
+
+    .grid-container_Forest {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        display: grid;
+    }
+
+    .grid-item_forest {
+        background-color: #fff;
+        border-radius: 16px;
+        height: 265px;
+        padding: 12px;
+
+    }
+</style>
+
+<div class="forest_root">
+    <div class="grid-container_Forest">
+        <div class="grid-item_forest"><%= forestDetails.note1 %></div>
+        <div class="grid-item_forest"><%= forestDetails.note2 %></div>
+        <div class="grid-item_forest"><%= forestDetails.note3 %></div>
+        <div class="grid-item_forest"><%= forestDetails.note4 %></div>
+    </div>
+</div>

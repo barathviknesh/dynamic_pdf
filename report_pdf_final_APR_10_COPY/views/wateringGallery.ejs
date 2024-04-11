@@ -1,0 +1,38 @@
+<style>
+    .watering_root_gallery_comment {
+        margin-left: 65px;
+        margin-right: 65px;
+        background-color: #FCFDFC;
+    }
+
+    .watering_cardBox {
+        /* height: 240px;
+        width: 396px; */
+        display: grid;
+    }
+
+    .watering_assetImgWater {
+        border-radius: 16px;
+        height: 170px;
+        width: 100%;
+        object-fit: cover
+    }
+
+    .watering_gallery_grid-container1 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 10px;
+        margin-top: 40px;
+    }
+</style>
+
+<div class="watering_root_gallery_comment">
+    <div class="watering_gallery_grid-container1">
+        <% for (let i=0; i < wateringTabledata.cards.length; i++) { %>
+            <div class="grid-item" class="watering_cardBox">
+                <img src="<%= wateringTabledata?.cards[i].imageSrc %>" class="watering_assetImgWater" />
+            </div>
+            <% } %>
+    </div>
+
+</div>

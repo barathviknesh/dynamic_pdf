@@ -1,0 +1,383 @@
+<style>
+    .plant_specific_info_container {
+        padding: 24px 65px;
+    }
+
+    .plant_specific_info_root {
+
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        height: 432px;
+        flex-shrink: 0;
+        border-radius: 16px;
+        border: 4px solid #FFF;
+        background: url(plantSpecificInfoBg.jpeg);
+        object-fit: cover;
+        box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.05);
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .plant_specific_info_box {
+        height: 100%
+    }
+
+    .plant_specific_info_parent_box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 40px;
+        margin-right: 30px;
+    }
+
+    .plant_specific_info_box_child {
+        width: 48%;
+        min-width: 296px;
+        height: 170px;
+        flex-shrink: 0;
+        border-radius: 16px;
+        background: rgba(0, 0, 0, 0.50);
+        backdrop-filter: blur(5px);
+        margin-right: 15px;
+    }
+
+    .plant_specific_info_box_child_typo_one {
+        color: #FFF;
+        font-family: Noto Sans;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        margin-top: 20px;
+        margin-left: 32px;
+    }
+
+    .plant_specific_info_box_child_typo_two {
+        color: #FFF;
+        font-family: Noto Sans;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-top: 4px;
+        margin-left: 32px;
+    }
+
+    .plant_specific_info_typo_three_box {
+        display: flex;
+        margin-left: 32px;
+        margin-top: 12px;
+    }
+
+    .plant_specific_info_typo_three {
+        color: #FFF;
+        font-family: Noto Sans;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    .plant_specific_info_typo_four {
+        color: #FFF;
+        font-family: Noto Sans;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .plant_specific_info_typo_dash {
+        color: #FFF !important;
+        font-family: 'Noto Sans';
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+
+    .plant_specific_info_typo_three_two {
+        color: #FFF;
+        font-family: Noto Sans;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    .plant_specific_info_typo_four_two {
+        color: #FFF;
+        font-family: Noto Sans;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .plant_specific_info_box_two {
+        width: 48%;
+        min-width: 296px;
+        height: 170px;
+        flex-shrink: 0;
+        border-radius: 16px;
+        background: rgba(0, 0, 0, 0.50);
+        backdrop-filter: blur(5px);
+    }
+
+    .plant_specific_info_current_temp_typo {
+        color: #FFF;
+        font-family: Noto Sans;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        margin-top: 20px;
+        margin-left: 32px;
+    }
+
+    .plant_specific_info_current_box_one {
+        display: flex;
+        justify-content: space-between;
+        padding: 32px
+    }
+
+    .plant_specific_info_current_typo_one {
+        color: #FFF;
+        font-family: 'Noto Sans';
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    .plant_specific_info_current_typo_two {
+        color: #FFF;
+        font-family: 'Noto Sans';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .plant_specific_info_current_typo_three {
+        color: #FFF;
+        font-family: 'Noto Sans';
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    .plant_specific_info_current_typo_four {
+        color: #FFF;
+        font-family: 'Noto Sans';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    .plant_specific_info_solid_type_parent_box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 16px;
+        margin-right: 30px;
+    }
+
+    .plant_specific_info_solid_type_box_one {
+        width: 48%;
+        min-width: 296px;
+        height: 170px;
+        flex-shrink: 0;
+        border-radius: 16px;
+        background: rgba(0, 0, 0, 0.50);
+        backdrop-filter: blur(5px);
+        margin-right: 15px;
+    }
+
+    .plant_specific_info_soil_type_typo {
+        color: #FFF;
+        font-family: 'Noto Sans';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        margin-top: 20px;
+        margin-left: 32px;
+    }
+
+    .black_red_parent_box {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .black_red_soil_typo {
+        color: #FFF;
+        font-family: 'Noto Sans';
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-top: 12px;
+    }
+
+    .red_soil_slider_parent_div {
+        margin-top: 18px;
+    }
+
+    .plant_color_parent_div {
+        width: 48%;
+        min-width: 296px;
+        height: 170px;
+        flex-shrink: 0;
+        border-radius: 16px;
+        background: rgba(0, 0, 0, 0.50);
+        backdrop-filter: blur(5px);
+    }
+
+    .plant_color_typo {
+        color: #FFF;
+        font-family: Noto Sans;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        margin-top: 20px;
+        margin-left: 32px;
+    }
+
+    .green_typo_parent_div {
+        padding-left: 32px;
+    }
+
+    .greenish_typo {
+        color: #FFF;
+        font-family: 'Noto Sans';
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-top: 12px;
+    }
+
+</style>
+
+<div class="plant_specific_info_container">
+    <div class="plant_specific_info_root">
+        <div class="plant_specific_info_box">
+
+            <div class="plant_specific_info_parent_box">
+                <div class="plant_specific_info_box_child">
+
+                    <div class="plant_specific_info_box_child_typo_one">Current Tree Height</div>
+                    <div class="plant_specific_info_box_child_typo_two">(Growth as expected)</div>
+                    <div class="plant_specific_info_typo_three_box">
+                        <div>
+                            <div class="plant_specific_info_typo_three"><%= plantSpecificInfo?.minHeight %> ft</div>
+                            <div class="plant_specific_info_typo_four">Min height</div>
+                        </div>
+                        <div class="plant_specific_info_typo_dash">-</div>
+
+                        <div>
+                            <div class="plant_specific_info_typo_three_two"><%= plantSpecificInfo?.maxHeight %>  ft</div>
+                            <div class="plant_specific_info_typo_four_two">Max height</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="plant_specific_info_box_two">
+
+                    <div class="plant_specific_info_current_temp_typo">Current Temperature</div>
+                    <div class="plant_specific_info_current_box_one">
+                        <div>
+                            <div class="plant_specific_info_current_typo_one"><%= plantSpecificInfo?.insideForest %>°C</div>
+                            <div class="plant_specific_info_current_typo_two">Inside forest</div>
+                        </div>
+                        <div>
+                            <div class="plant_specific_info_current_typo_three"><%= plantSpecificInfo?.outsideForest %>°C</div>
+                            <div class="plant_specific_info_current_typo_four">Outside forest</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="plant_specific_info_solid_type_parent_box">
+                <div class="plant_specific_info_solid_type_box_one">
+
+                    <div class="plant_specific_info_soil_type_typo">Soil Type</div>
+
+                    <div class="black_red_parent_box">
+                        <div class="black_red_soil_typo"><%= plantSpecificInfo?.soilColorName %></div>
+                        <div class="red_soil_slider_parent_div">
+                            <svg id="solid-color-svg" xmlns="http://www.w3.org/2000/svg" width="240" height="24"
+                                viewBox="0 0 240 24" fill="none">
+                                <g filter="url(#filter0_b_177_1884)">
+                                    <rect width="232" height="8" rx="4" transform="matrix(-1 0 0 1 236 8)"
+                                        fill="url(#paint0_linear_177_1884)" />
+                                    <rect x="2" y="-2" width="236" height="12" rx="6" transform="matrix(-1 0 0 1 240 8)"
+                                        stroke="white" stroke-opacity="0.25" stroke-width="4" />
+                                </g>
+                                <circle id="soil_circle_meter_1" cx="" cy="12" r="8" fill="white" />
+                                <circle id="soil_circle_meter_2" cx="" cy="12" r="10" stroke="white"
+                                    stroke-opacity="0.25" stroke-width="4" />
+                                <defs>
+                                    <filter id="filter0_b_177_1884" x="-25" y="-21" width="290" height="66"
+                                        filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                        <feGaussianBlur in="BackgroundImageFix" stdDeviation="12.5" />
+                                        <feComposite in2="SourceAlpha" operator="in"
+                                            result="effect1_backgroundBlur_177_1884" />
+                                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_177_1884"
+                                            result="shape" />
+                                    </filter>
+                                    <linearGradient id="paint0_linear_177_1884" x1="8.10248e-08" y1="4.00002" x2="232"
+                                        y2="4.00003" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#2A0000" />
+                                        <stop offset="1" stop-color="#880000" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="plant_color_parent_div">
+
+
+                    <div class="plant_color_typo">Plant Color</div>
+
+                    <div class="green_typo_parent_div">
+                        <div class="greenish_typo"><%= plantSpecificInfo?.plantColorName %></div>
+                        <div style="margin-top: 18px;">
+                            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="Ellipse 8">
+                                <circle cx="14" cy="14" r="10" fill=<%= plantSpecificInfo?.plantColor %>
+                                <circle cx="14" cy="14" r="12" stroke="white" stroke-opacity="0.25" stroke-width="4"/>
+                                </g>
+                                </svg>
+                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<script>
+    function changeCXValue(value) {
+        var circle1 = document.getElementById('soil_circle_meter_1');
+        var circle2 = document.getElementById('soil_circle_meter_2');
+        circle1.setAttribute('cx', value);
+        circle2.setAttribute('cx', value);
+    }
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        changeCXValue(<%= plantSpecificInfo && plantSpecificInfo.soilColor %>);
+    });
+</script>

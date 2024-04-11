@@ -1,0 +1,103 @@
+<style>
+    .rootGallery {
+        margin-left: 65px;
+        margin-right: 65px;
+        background-color: #FCFDFC;
+    }
+
+    .cardBox {
+        /* height: 240px;
+        width: 396px; */
+        display: grid;
+    }
+
+    .assetImg {
+        border-radius: 16px;
+        height: 240px;
+        width: 100%;
+        object-fit: cover
+    }
+
+    .date {
+        margin-top: 16px;
+        color: rgba(0, 0, 0, 0.50);
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        font-family: "Noto Sans";
+        font-family: "Noto Sans";
+
+    }
+
+    .googleEarth {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .googletitle {
+        color: #000;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        font-family: "Noto Sans";
+        font-family: "Noto Sans";
+
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        margin-top: 40px;
+    }
+
+    .tag {
+        display: flex;
+        padding: 7px 16px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 16px;
+        background: rgba(0, 0, 0, 0.50);
+        backdrop-filter: blur(12.5px);
+        position: absolute;
+        margin: 16px;
+        
+    }
+
+    .tagText {
+        color: #FFF;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        font-family: "Noto Sans";
+        font-family: "Noto Sans";
+
+    }
+</style>
+<div class="rootGallery">
+
+    <div class="googleEarth">
+        <h class="googletitle">Photo Gallery</h>
+    </div>
+    <div class="grid-container">
+        <% for (let i=0; i < gallery?.length; i++) { %>
+            <div class="grid-item" class="cardBox">
+                <img src="<%= gallery[i]?.imageSrc %>" class="assetImg" />
+                <h class="date">
+                    <%= gallery[i]?.date %>
+                </h>
+
+                <div class="tag">
+                    <h class="tagText"><%= gallery[i]?.tag %></h>
+                </div>
+            </div>
+            <% } %>
+    </div>
+</div>

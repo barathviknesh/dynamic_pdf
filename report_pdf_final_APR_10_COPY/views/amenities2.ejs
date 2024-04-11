@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .rootAmenities2 {
+            margin-left: 65px;
+            margin-right: 65px;
+            background-color: rgba(249, 181, 114, 0.02);
+            margin-top: 24px;
+
+        }
+
+        .titleMainAmen {
+            color: #805D3A;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            font-family: "Noto Sans";
+
+        }
+
+        .tableAmenities2 {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            overflow: hidden;
+            margin-top: 26px;
+        }
+
+        .tableHeadA2 th {
+            color: #fff;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            padding: 12px 12px 9px 24px;
+            font-family: "Noto Sans";
+            --bg-color: <%=cumulative_data_color %> background-color: var(--bg-color);
+
+        }
+
+        .row1Tit2 th {
+            text-align: left;
+        }
+
+        .root2 {
+            margin-top: 32px;
+        }
+
+        td {
+            border: 1px solid #dddddd;
+            padding: 16px 24px 16px 24px;
+            text-align: center;
+            font-size: 14px;
+            font-family: "Noto Sans";
+
+        }
+
+        .tableHeadA2 th,
+        .sub-column,
+        td {
+            border: 1px solid #dddddd;
+            text-align: center;
+            /* padding: 8px; */
+        }
+
+        td img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        th.week,
+        td.sub-column2 {
+            color: #fff;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            padding: 12px 12px 9px px;
+            font-family: "Noto Sans";
+            text-align: center;
+            --bg-color: <%=cumulative_data_color %> background-color: var(--bg-color);
+
+        }
+
+        .table_item {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rootAmenities2">
+        <h class="titleMainAmen">Amenities</h>
+        <table class="tableAmenities2">
+            <tr class="tableHeadA2">
+                <th rowspan="2" class="row1Tit2" style="text-align: left; padding: 24px;">Title</th>
+                <% cumulativeAmenitiesTableData.columnNames.forEach(columnName => { %>
+
+                    <th colspan="2" class="amenities_table_header"><%= columnName %></th>
+                    <% }); %>
+            </tr>
+            <tr class="tableHeadA2">
+                <td class="sub-column2">Working</td>
+                <td class="sub-column2">Not working</td>
+                <td class="sub-column2">Working</td>
+                <td class="sub-column2">Not working</td>
+                <td class="sub-column2">Working</td>
+                <td class="sub-column2">Not working</td>
+            </tr>
+            <% cumulativeAmenitiesTableData.rows.forEach(item=> { %>
+                <tr>
+                    <td>
+                        <%= item.title %>
+                    </td>
+                    <td class="table_item">
+                        <%= item.working2022 %>
+                    </td>
+                    <td class="table_item">
+                        <%= item.notWorking2022 %>
+                    </td>
+                    <td class="table_item">
+                        <%= item.working2023 %>
+                    </td>
+                    <td class="table_item">
+                        <%= item.notWorking2023 %>
+                    </td>
+                    <td class="table_item">
+                        <%= item.working2024 %>
+                    </td>
+                    <td class="table_item">
+                        <%= item.notWorking2024 %>
+                    </td>
+                </tr>
+                <% }); %>
+        </table>
+
+
+
+    </div>
+</body>
+
+</html>

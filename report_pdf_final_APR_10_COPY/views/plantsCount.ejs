@@ -1,0 +1,106 @@
+<Style>
+    .titlepalnts_Count {
+        color: #748E63;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        font-family: "Noto Sans";
+
+    }
+
+    .titlepalnts_Over {
+        color: #748E63;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        font-family: "Noto Sans";
+        margin-top: 32px;
+    }
+
+    .tableWatering {
+        width: 100%;
+        overflow: hidden;
+        margin-top: 26px;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        /* border: 0.5px solid #748E63 ; */
+        background: #FFF;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    .tableHead th {
+        color: #fff;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        padding: 12px 12px 9px 24px;
+        font-family: "Noto Sans";
+        --bg-color: <%=report_data_color %> background-color: var(--bg-color);
+
+    }
+
+    .rootWater2 {
+        margin-top: 32px;
+        background: rgba(249, 181, 114, 0.02);
+        margin-left: 65px;
+        margin-right: 65px;
+    }
+
+    td {
+        border: 1px solid #dddddd;
+        padding: 16px 24px 16px 24px;
+        text-align: left;
+        font-size: 14px;
+        font-family: "Noto Sans";
+
+
+    }
+
+    .header_pant {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin-top: 32px;
+        margin-bottom: 40px;
+
+    }
+
+    .titlepalnts_Over {
+        color: #000;
+        font-family: "Noto Sans";
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+</Style>
+<div class="rootWater2">
+    <div class="header_pant">
+        <h class="titlepalnts_Over">January Report Data</h>
+    </div>
+
+    <h class="titlepalnts_Count">Plants count</h>
+    <table class="tableWatering">
+        <tr class="tableHead_water">
+            <th>Title</th>
+            <% plantsTableData.columnNames.forEach(columnName => { %>
+                <th><%= columnName %></th>
+            <% }); %>
+        </tr>
+        
+        <% plantsTableData.rows.forEach(entry => { %>
+            <tr>
+                <td><%= entry.title %></td>
+                <% entry.values.forEach(value => { %>
+                    <td><%= value %></td>
+                <% }); %>
+            </tr>
+        <% }); %>
+    </table>
+    
+
+</div>

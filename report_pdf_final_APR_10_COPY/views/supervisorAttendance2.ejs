@@ -1,0 +1,84 @@
+<style>
+    .titleMainSuper2 {
+        color: #805D3A;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    .tabelSupervisor2 {
+        border-collapse: collapse;
+        width: 100%;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        overflow: hidden;
+        margin-top: 26px;
+        background: #FFF;
+        margin-bottom: 40px;
+
+    }
+
+    .tableHeadsuper2 th {
+        color: #fff;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        padding: 12px 12px 9px 24px;
+        font-family: "Noto Sans";
+        --bg-color: <%=cumulative_data_color %> background-color: var(--bg-color);
+
+    }
+
+    .rootSuper2 {
+        margin-top: 32px;
+        margin-left: 65px;
+        margin-right: 65px;
+        background: rgba(249, 181, 114, 0.02);
+    }
+
+    td {
+        border: 1px solid #dddddd;
+        padding: 16px 24px 16px 24px;
+        text-align: left;
+        font-size: 14px;
+        font-family: "Noto Sans";
+
+
+    }
+
+    .year_auper {
+        text-align: center;
+
+    }
+</style>
+<div class="rootSuper2">
+
+    <h class="titleMainSuper2">Supervisor attendance</h>
+    <div>
+
+    <table class="tabelSupervisor2">
+        <tr class="tableHeadsuper2">
+            <th>Title</th>
+            <% cumulativeAttendanceTableData.columnNames.forEach(columnName => { %>
+                <th class="year_auper"><%= columnName %></th>
+            <% }); %>
+        </tr>
+        <% cumulativeAttendanceTableData.rows.forEach(item=> { %>
+            <tr>
+                <td>
+                    <%= item.title %>
+                </td>
+                <% item.attendance.forEach(day=> { %>
+                    <td class="year_auper">
+                        <%= day %>
+                    </td>
+                    <% }) %>
+            </tr>
+            <% }) %>
+    </table>
+</div>
+
+
+</div>

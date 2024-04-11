@@ -1,0 +1,94 @@
+<style>
+    .watering_root_comment {
+        background-color: #FCFDFC;
+    }
+
+    .watering_date {
+        margin-top: 16px;
+        color: rgba(0, 0, 0, 0.50);
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        font-family: "Noto Sans";
+
+    }
+
+    .watering_cmtItemWater {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        margin-top: 8px;
+    }
+
+
+    .watering_cmtdivWater {
+        margin-top: 31px;
+        margin-bottom: 48px;
+        margin-left: 65px;
+        margin-right: 65px;
+    }
+
+    .watering_cmtWater {
+        color: #000;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        font-family: "Noto Sans";
+
+    }
+
+    .watering_cmtTextWater {
+        color: #000;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        font-family: "Noto Sans";
+
+    }
+
+    .watering_dateTextWater {
+        color: rgba(0, 0, 0, 0.50);
+        text-align: right;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: normal;
+        font-family: "Noto Sans";
+
+    }
+
+    .watering_hr {
+        border-top: 1px dotted #f2f3f2;
+    }
+
+    .watering_cmtSectionWater {
+        margin-top: 8px;
+    }
+</style>
+<div class="watering_root_comment">
+    <div class="watering_cmtdivWater">
+        <h class="watering_cmtWater">Comments (<%= wateringTabledata.comments.length %>)</h>
+        <div class="watering_cmtSectionWater">
+            <% wateringTabledata.comments.forEach(comment => { %>
+            <div class="watering_cmtItemWater">
+                <h class="watering_cmtTextWater"><%= comment.comment1 %></h>
+                <h class="watering_dateTextWater"><%= comment.date1 %></h>
+            </div>
+            <% }); %>
+
+            <hr class="watering_hr">
+            <% wateringTabledata.comments.forEach(comment => { %>
+
+            <div class="watering_cmtItemWater">
+                <h class="watering_cmtTextWater"><%= comment.comment2 %></h>
+                <h class="watering_dateTextWater"><%= comment.date2 %></h>
+            </div>
+            <% }); %>
+
+        </div>
+    </div>
+    
+    </div>

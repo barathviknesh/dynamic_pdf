@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title><%= title %></title>
+    <style>
+
+        @page {
+            /* size: A4; */
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans', Arial, sans-serif;
+            margin: 0;
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 100%;
+            min-width: 100%;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+         /* Page break before and after specific elements */
+         .page-break-before {
+            page-break-before: always;
+        }
+
+        .page-break-after {
+            page-break-after: always;
+        }
+    </style>
+</head>
+<body>
+
+    <%- include('intro') %>
+    <%- include('overviewCard') %>
+    <div class="page-break-before">
+    <%- include('plantSpecficInfo') %>
+    </div>
+    <%- include('googleEarthCard') %>
+    <%- include('galleryCard') %>
+    <div class="page-break-before">
+  
+    <%- include('plantsCount') %>
+    </div>
+    <%- include('circleChart') %>
+    <%- include('wateringPlants') %>
+    <%- include('wateringGallery') %>
+    <%- include('wateringComments') %>
+    <div class="page-break-before">
+    <%- include('activities') %>
+    </div>
+ 
+    <div class="page-break-before">
+    <%- include('amenities') %>
+    </div>
+    <%- include('amenitiesGallery') %>
+    <%- include('amenitiesComment') %>
+    <%- include('supervisorAttendance') %>
+    <div class="page-break-before" style="margin-top: 26px;">
+    <%- include('biodiversityExpert') %>
+    </div>
+    <%- include('biodiversityTagandComment') %>
+    <%- include('visitors') %>
+    <%- include('visitorscomment') %>
+    <%- include('lineChart') %>
+    <div class="page-break-before">
+    <%- include('amenities2') %>
+    </div>
+    <%- include('activities2') %>
+    <%- include('wateringPlants2') %>
+    <%- include('supervisorAttendance2') %>
+    <div class="page-break-before">
+    <%- include('forestDetails') %>
+    <%- include('endCard') %>
+    </div>
+    
+</body>
+
+</html>

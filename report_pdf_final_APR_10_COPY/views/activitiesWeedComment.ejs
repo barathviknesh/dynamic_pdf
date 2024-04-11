@@ -1,0 +1,38 @@
+<style>
+  .activities_weed_comment_root {
+    margin-top: 32px;
+    margin-left: 65px;
+    margin-right: 65px;
+    background-color: #fcfdfc;
+  }
+  .activitiesCmtItemAct1 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        margin-top: 8px;
+    }
+</style>
+
+<div class="activities_weed_comment_root">
+  <div class="cmtAct">
+    <h class="cmtAc">Comments (02)</h>
+    <div class="cmtSectionAc">
+        <% activitiesTableData.comments.forEach(comment => { %>
+      <div class="activitiesCmtItemAct1">
+
+        <h class="cmtTextAct"><%= comment.comment1 %></h>
+        <h class="dateTextAct"><%= comment.date1 %></h>
+      </div>
+      <% }); %>
+
+      <hr class="watering_hr"/>
+      <% activitiesTableData.comments.forEach(comment => { %>
+      <div class="activitiesCmtItemAct1">
+        <h class="cmtTextAct"><%= comment.comment2 %></h>
+        <h class="dateTextAct"><%= comment.date2 %></h>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+</div>

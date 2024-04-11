@@ -1,0 +1,132 @@
+<style>
+    .intro-main-container {
+        padding: 24px 35px;
+    }
+    .intro-flex-container {
+        display: flex;
+        justify-content: space-between;
+    }
+    .intro-half-width-container {
+        display: flex;
+        width: 100%;
+    }
+    .intro-center-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+    }
+    .intro-left-container {
+        /* padding-left: 20px; */
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 50%;
+    }
+    .intro-commutree-img {
+        width: 195px;
+        height: 55px;
+        flex-shrink: 0;
+    }
+    .intro-planted-info {
+        color: #805D3A;
+        font-family: Noto Sans;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+    .intro-cover-image {
+        height: 80%;
+        width: 80%;
+    }
+    .intro-hero-logo {
+        width: 57px;
+        height: 96px;
+        flex-shrink: 0;
+        object-fit: cover;
+    }
+    .intro-forest-name {
+        color: #000;
+        font-family: Noto Sans;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-top: 16px;
+    }
+    .intro-location-info {
+        color: rgba(0, 0, 0, 0.50);
+        font-family: Noto Sans;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin-top: 16px;
+    }
+    .intro-report-heading-div {
+        display: flex; 
+        align-items: center; 
+        width: 407px; 
+        height: 43px; 
+        flex-shrink: 0; 
+        background: linear-gradient(90deg, #E2E101 0%, #FFF 100%);  
+        margin-top: 34px;
+    }
+    .intro-report-heading {
+        padding-left: 8px;
+        color: #000;
+        font-family: Noto Sans;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        padding-left: 8px; 
+        color: #000; 
+        font-family: Noto Sans; 
+        font-size: 20px; 
+        font-style: normal; 
+        font-weight: 600; 
+        line-height: normal;
+    }
+    .intro-sponsor-div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 54px;
+        flex-wrap: wrap;
+        margin-left: -24px;
+    }
+    .intro-sponsor-img {
+        margin-left: 24px;
+        margin-top: 12px;
+    }
+</style>
+<div class="intro-main-container">
+    <div class="intro-flex-container">
+        <img src="commutree.png" class="intro-commutree-img" />
+        <div class="intro-planted-info"><%= intro?.planedOnDate %></div>
+    </div>
+    <div class="intro-half-width-container">
+        <div class="intro-center-container">
+            <img src="intro-cover-Image.svg" class="intro-cover-image" />
+        </div>
+        <div class="intro-left-container">
+            <div>
+                <img src="hero_logo.png" class="intro-hero-logo" />
+                <div class="intro-forest-name"><%= intro?.title %></div>
+                <div class="intro-location-info"><%= intro?.address %></div>
+                <div class="intro-report-heading-div">
+                    <div class="intro-report-heading"><%= intro?.reportOnDate %></div>
+                </div>
+                <div class="intro-sponsor-div">
+                    <img src="Logo.svg" class="intro-sponsor-img" />
+                    <img src="Logo1.svg" class="intro-sponsor-img" />
+                    <img src="Logo2.svg" class="intro-sponsor-img" />
+                    <img src="Logo3.svg" class="intro-sponsor-img" />
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

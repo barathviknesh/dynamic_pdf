@@ -1,0 +1,75 @@
+<style>
+    .titleMainActivites2 {
+        color:#805D3A;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        font-family: "Noto Sans";
+    }
+
+    .tableActivity2 {
+        border-collapse: collapse;
+        width: 100%;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        overflow: hidden;
+        margin-top: 26px;
+
+    }
+
+    .tableHeadAme2 th {
+        color: #fff;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        padding: 12px 12px 9px 24px;
+        font-family: "Noto Sans";
+        --bg-color: <%=cumulative_data_color %> background-color: var(--bg-color);
+
+    }
+
+    .rootActivitiesAme2 {
+        margin-top: 32px;
+        margin-left: 65px;
+        margin-right: 65px;
+        background-color: rgba(249, 181, 114, 0.02);
+
+    }
+
+    td {
+        border: 1px solid #dddddd;
+        padding: 16px 24px 16px 24px;
+        text-align: left;
+        font-size: 14px;
+        font-family: "Noto Sans";
+
+    }
+</style>
+<div class="rootActivitiesAme2">
+
+    <h class="titleMainActivites2">Activities</h>
+
+    <table class="tableActivity2">
+        <tr class="tableHeadAme2">
+            <th>Title</th>
+            <% cumulativeActivitesTableData.columnNames.forEach(columnName => { %>
+                <th class="year_auper"><%= columnName %></th>
+            <% }); %>
+        </tr>
+
+        <% cumulativeActivitesTableData.rows.forEach(function(activity) { %>
+            <tr>
+                <td>
+                    <%= activity.title %>
+                </td>
+                <% activity.hours.forEach(function(hour) { %>
+                    <td class="year_auper">
+                        <%= hour %>
+                    </td>
+                    <% }) %>
+            </tr>
+            <% }) %>
+    </table>
+</div>

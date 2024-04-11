@@ -1,0 +1,141 @@
+<style>
+  .am_root_amenities {
+      margin-left: 65px;
+      margin-right: 65px;
+      background-color: #FCFDFC;
+      margin-top: 24px;
+      width: 100%;
+      min-width: 100%;
+      max-width: 100%;
+  }
+
+  .am_amenities_title {
+      color: #748E63;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      font-family: "Noto Sans";
+
+  }
+
+  .am_amenities_tableAmenities {
+      border-collapse: collapse;
+      border-spacing: 0;
+      width: 100%;
+      border-top-right-radius: 12px;
+      border-top-left-radius: 12px;
+      overflow: hidden;
+      margin-top: 26px;
+      min-width: 100%;
+      max-width: 100%;
+      display: table;
+      max-width: 100%;
+      box-sizing: border-box;
+  }
+
+  .am_amenities_tableHeadA th {
+      color: #fff;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      padding: 10px 12px 16px 8px;
+      font-family: "Noto Sans";
+      --bg-color: <%=report_data_color %> background-color: var(--bg-color);
+
+  }
+
+  .am_amenities_title_table {
+      text-align: center;
+      padding: 24px;
+  }
+
+  .amenities_table_header {
+      text-align: center;
+  }
+
+  .am_amenities_tableHeadA {
+      border: 1px solid #dddddd;
+      text-align: center;
+  }
+
+  .am_amenities_table_header {
+      text-align: center;
+  }
+
+  .am_sub-column_amenities {
+      border: 1px solid #dddddd;
+      text-align: center;
+      color: #fff;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      /* padding: 12px 10px 9px 10px; */
+      font-family: "Noto Sans";
+      --bg-color: <%=report_data_color %> background-color: var(--bg-color);
+  }
+
+
+  /* #amenities-scale-class {
+      transform: scale(0.70);
+      transform-origin: 0 0;
+  }  */
+</style>
+
+<div class="am_root_amenities" id="amenities-scale-class">
+  <h class="am_amenities_title">Amenities</h>
+  <div
+    style="
+      transform: scale(1.5);
+      margin-left: -13%;
+      margin-top: -50px;
+      padding-left: 0;
+    "
+  >
+    <table
+      class="am_amenities_tableAmenities"
+      style="transform: scale(0.52); margin-left: 0; padding-left: 0"
+    >
+      <tr class="am_amenities_tableHeadA">
+        <th rowspan="2" class="am_amenities_title_table">Title</th>
+        <% amenitiesTableData.columnNames.forEach(columnName => { %>
+
+        <th colspan="2" class="amenities_table_header"><%= columnName %></th>
+        <% }); %>
+      </tr>
+      <tr class="am_amenities_tableHeadA">
+        <td class="am_sub-column_amenities">Working</td>
+        <td class="am_sub-column_amenities">Not working</td>
+        <td class="am_sub-column_amenities">Working</td>
+        <td class="am_sub-column_amenities">Not working</td>
+        <td class="am_sub-column_amenities">Working</td>
+        <td class="am_sub-column_amenities">Not working</td>
+        <td class="am_sub-column_amenities">Working</td>
+        <td class="am_sub-column_amenities">Not working</td>
+        <td class="am_sub-column_amenities">Working</td>
+        <td class="am_sub-column_amenities">Not working</td>
+      </tr>
+
+      <% amenitiesTableData.rows.forEach(function(item) { %>
+        <tr class="amenitiesRow">
+          <td class="title"><%= item.title %></td>
+          <% for (var i=0; i < 5; i++) { %>
+            <% if (item.working[i] === 'yes') { %>
+              <td class="working"><img src="tick.png" alt="Tick" /></td>
+            <% } else { %>
+              <td class="working"></td>
+            <% } %>
+            <% if (item.notWorking[i] === 'yes') { %>
+              <td class="notWorking"><img src="wrong.png" alt="Wrong" /></td>
+            <% } else { %>
+              <td class="notWorking"></td>
+            <% } %>
+          <% } %>
+        </tr>
+      <% }) %>
+      
+    </table>
+  </div>
+</div>

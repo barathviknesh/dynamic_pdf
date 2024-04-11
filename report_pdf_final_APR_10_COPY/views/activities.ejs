@@ -1,0 +1,239 @@
+<style>
+    .titleMain {
+        color: #748E63;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        font-family: "Noto Sans";
+    }
+
+    .tableActivity {
+        border-collapse: collapse;
+        width: 100%;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        overflow: hidden;
+        margin-top: 26px;
+
+    }
+
+    .tableHead_act th {
+        color: #fff;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        padding: 12px 12px 9px 24px;
+        font-family: "Noto Sans";
+        --bg-color: <%=report_data_color %> background-color: var(--bg-color);
+    }
+
+    .rootActivities {
+        margin-top: 32px;
+        margin-left: 65px;
+        margin-right: 65px;
+        background-color: #FCFDFC;
+
+    }
+
+    td {
+        border: 1px solid #dddddd;
+        padding: 16px 24px 16px 24px;
+        text-align: left;
+        font-size: 14px;
+        font-family: "Noto Sans";
+
+    }
+
+    th,
+    td {
+        border: 1px solid #dddddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    .cardBox {
+        /* height: 240px;
+        width: 396px; */
+        display: grid;
+    }
+
+    .assetImgAct {
+        border-radius: 16px;
+        height: 170px;
+        width: 100%;
+        object-fit: cover
+    }
+
+    .date {
+        margin-top: 16px;
+        color: rgba(0, 0, 0, 0.50);
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        font-family: "Noto Sans";
+
+    }
+
+    .activitiesTitleParent {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .activitiesTitle {
+        color: #000;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        font-family: "Noto Sans";
+        margin-top: 40px;
+
+    }
+
+    .cmtItemAct {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 16px;
+        margin-top: 16px;
+    }
+
+    .cmtAct {
+        margin-top: 31px;
+        margin-bottom: 48px;
+    }
+
+    .cmtAc {
+        color: #000;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        font-family: "Noto Sans";
+
+    }
+
+    .cmtTextAct {
+        color: #000;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        font-family: "Noto Sans";
+
+    }
+
+    .dateTextAct {
+        color: rgba(0, 0, 0, 0.50);
+        text-align: right;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: normal;
+        font-family: "Noto Sans";
+
+    }
+
+    hr {
+        border-top: 1px dotted #f2f3f2;
+    }
+
+    .cmtSectionAc {
+        margin-top: 8px;
+    }
+
+    .grid-container1 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 10px;
+        margin-top: 40px;
+    }
+    .activities_weed_root {
+        margin-top: 32px;
+        margin-left: 65px;
+        margin-right: 65px;
+        background-color: #FCFDFC;
+
+    }
+    .activities_weed_comment_root {
+    margin-top: 32px;
+    margin-left: 65px;
+    margin-right: 65px;
+    background-color: #fcfdfc;
+  }
+  .activitiesCmtItemAct1 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        margin-top: 8px;
+    }
+</style>
+
+<div>
+
+<div class="rootActivities">
+
+    <h class="titleMain">Activities</h>
+
+    <table class="tableActivity">
+        <tr class="tableHead_act">
+            <th>Title</th>
+            <% activitiesTableData.columnNames.forEach(columnName => { %>
+                <th><%= columnName %></th>
+            <% }); %>
+        </tr>
+        </tr>
+
+        <% activitiesTableData.rows.forEach(function(activity) { %>
+            <tr>
+                <td>
+                    <%= activity.title %>
+                </td>
+                <% activity.hours.forEach(function(hour) { %>
+                    <td>
+                        <%= hour %>
+                    </td>
+                    <% }) %>
+            </tr>
+            <% }) %>
+    </table>
+
+
+</div>
+
+
+<div class="activities_weed_root">
+    <% activitiesTableData?.activities?.forEach((activity, index) => { %>
+    <div class="activitiesTitleParent <%= index % 2 !== 0 ? '' : 'page-break-before' %>">
+        <h class="activitiesTitle">Activity <%= index+1 %> : <%= activity.activityTitle %></h>
+    </div>
+    <div class="grid-container1">
+        <% activity.cards.forEach(card => { %>
+            <div class="grid-item" class="cardBox">
+                <img src="<%= card.imageSrc %>" class="assetImgAct" />
+            </div>
+        <% }); %>
+    </div>
+    
+    <div class="cmtAct">
+      <h class="cmtAc">Comments (02)</h>
+      <div class="cmtSectionAc">
+          <% activity.comments.forEach(comment => { %>
+            <div class="activitiesCmtItemAct1">
+                <h class="cmtTextAct"><%= comment.text %></h>
+                <h class="dateTextAct"><%= comment.date %></h>
+            </div>
+          <% }); %>
+      </div>
+    </div>
+    <% }); %>
+</div>
+
+
+</div>

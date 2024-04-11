@@ -1,0 +1,35 @@
+<style>
+    .activities_site_comment_root {
+        margin-top: 32px;
+        margin-left: 65px;
+        margin-right: 65px;
+        background-color: #FCFDFC;
+
+    }
+</style>
+
+<div class="activities_site_comment_root">
+
+
+
+    <div class="cmtAct">
+        <h class="cmtAc">Comments (02)</h>
+        <div class="cmtSectionAc">
+            <% activitiesTableData.siteComments.forEach(comment => { %>
+
+            <div class="cmtItemAct1">
+                <h class="cmtTextAct"><%= comment.comment1 %></h>
+                <h class="dateTextAct"><%= comment.date1 %></h>
+                         </div>
+            <% }); %>
+
+            <hr class="watering_hr"/>
+            <% activitiesTableData.siteComments.forEach(comment => { %>
+
+            <div class="cmtItemAct1">
+                <h class="cmtTextAct"><%= comment.comment2 %></h>
+                <h class="dateTextAct"><%= comment.date2 %></h>        </div>
+            <% }); %>
+        </div>
+    </div>
+</div>
